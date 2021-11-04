@@ -40,11 +40,11 @@ function readText(filePath) {
             // call the method that desplays to the HTML side
             
                 console.log(window.location.pathname);
-            if(window.location.pathname == '/D:/Work_and_things/HelpingPeople/HelpingBrooke/index.html'){
+            if(window.location.pathname == '/'){
                 displayContents("Number of API Calls: "+apiCallNum," Number of APIs: "+numAPI," Average of API Calls: "+APIAvgCall,'API Names: '+apiNames,'API Names and Calls: '+apiNameAndCalls);
                 // main page display
             }
-            else if (window.location.pathname == '/D:/Work_and_things/HelpingPeople/HelpingBrooke/secondpage.html'){
+            else if (window.location.pathname == '/secondpage.html'){
                 displayContents2(apiNameAndCalls,numAPI); // second page display method
             }
         };//end onload()
