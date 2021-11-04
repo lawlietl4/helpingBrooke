@@ -27,6 +27,7 @@ function readText(filePath) {
     var output = ""; //placeholder for text output
     if (filePath.files && filePath.files[0]) {
         reader.onload = function (e) {
+            
             // get file contents
             output = (e.target.result);
             // turn those contents to JSON
@@ -76,7 +77,7 @@ function displayContents(txt1, txt2, txt3, txt4, txt5) {
     //el1.innerHTML = txt1;
     //el2.innerHTML = txt2;
     //el3.innerHTML = txt3;// these are referencing the element vars at the top of file
-    el4.innerHTML = 'test'+data[3];
+    el4.innerHTML = 'test'+apiCallNum;
     //el5.innerHTML = txt5;
 }
 
@@ -84,4 +85,7 @@ function displayContents2(txt1) {
     console.log(apiNames);
     el2.innerHTML = data[1]; // need element that matches this variable element's name in the second page
     el6.innerHTML = txt1;
+}
+function persistData(data){
+    
 }
