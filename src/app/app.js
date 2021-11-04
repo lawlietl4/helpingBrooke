@@ -16,17 +16,12 @@ app.get('/secondpage.html', function(req,res){
 app.get('/index.html',function(req,res){
     res.redirect('/');
 });
+app.get('/style.css',function(req,res){
+    res.sendFile('style.css', {root: path.join(__dirname, '../views')});
+})
 app.listen(81);
 console.log("something at localhost:81");
 // console.log(fs.readFile('StatsRunnerExampleResult.json', 'utf8', (err,data)=>{
 //     if (err) console.log(err);
 //     console.log(data);
 // }));
-
-function readFile(filePath){
-    let output='';
-    let rawData = fs.readFileSync(filePath);
-    output += JSON.parse(rawData);
-    console.log(output['People']);
-}
-readFile('./example.json');

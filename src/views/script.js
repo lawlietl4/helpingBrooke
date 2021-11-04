@@ -76,7 +76,7 @@ function displayContents(txt1, txt2, txt3, txt4, txt5) {
     //el1.innerHTML = txt1;
     //el2.innerHTML = txt2;
     //el3.innerHTML = txt3;// these are referencing the element vars at the top of file
-    el4.innerHTML = 'test'+data[2];
+    el4.innerHTML = 'test'+data[3];
     //el5.innerHTML = txt5;
 }
 
