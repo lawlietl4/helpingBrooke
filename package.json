@@ -1,0 +1,15 @@
+{
+  "name": "helpingbrooke",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src\\app\\script.js",
+  "scripts": {
+    "start": "node src\\app\\script.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
