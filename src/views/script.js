@@ -5,11 +5,12 @@ var el3 = document.getElementById('info3');
 var el4 = document.getElementById('info4');
 var el5 = document.getElementById('info5');
 var el6 = document.getElementById('out1');
-let apiCallNum = ''; 
+let apiCallNum = '';
 let numAPI = '';
 let APIAvgCall = '';
 let apiNames = '';
 let apiNameAndCalls = '';
+let data = [];
 
 function checkFileAPI() {
     if (window.File && window.FileReader && window.FileList && window.Blob) {
@@ -33,19 +34,19 @@ function readText(filePath) {
             // parse the JSON object so that its contents are String
             apiCallNum = JSON.stringify(JSONOut['Number Of API Calls']);
             numAPI = JSON.stringify(JSONOut['Number Of APIs']);
-            APIAvgCall=(JSON.stringify(JSONOut['Average Calls Per API']));
+            APIAvgCall = (JSON.stringify(JSONOut['Average Calls Per API']));
             apiNames = (JSON.stringify(JSONOut['API Names']));
             apiNameAndCalls = (JSON.stringify(JSONOut["API Names and Calls"]));
             // console.log(JSONOut[0]);
             // call the method that desplays to the HTML side
-            
-                console.log(window.location.pathname);
-            if(window.location.pathname == '/'){
-                displayContents("Number of API Calls: "+apiCallNum," Number of APIs: "+numAPI," Average of API Calls: "+APIAvgCall,'API Names: '+apiNames,'API Names and Calls: '+apiNameAndCalls);
+            data.push(apiCallNum,apiNames,apiNameAndCalls,numAPI,APIAvgCall);
+            console.log(window.location.pathname);
+            if (window.location.pathname == '/') {
+                displayContents("Number of API Calls: " + apiCallNum, " Number of APIs: " + numAPI, " Average of API Calls: " + APIAvgCall, 'API Names: ' + apiNames, 'API Names and Calls: ' + apiNameAndCalls);
                 // main page display
             }
-            else if (window.location.pathname == '/secondpage.html'){
-                displayContents2(apiNameAndCalls,numAPI); // second page display method
+            else if (window.location.pathname == '/secondpage.html') {
+                displayContents2(apiNameAndCalls, numAPI); // second page display method
             }
         };//end onload()
         reader.readAsText(filePath.files[0]);
@@ -71,16 +72,16 @@ function readText(filePath) {
     return true;
 }
 
-function displayContents(txt1,txt2,txt3,txt4,txt5) {
-    el1.innerHTML = txt1;
-    el2.innerHTML = txt2;
-    el3.innerHTML = txt3;// these are referencing the element vars at the top of file
-    el4.innerHTML=txt4;
-    el5.innerHTML=txt5;
+function displayContents(txt1, txt2, txt3, txt4, txt5) {
+    //el1.innerHTML = txt1;
+    //el2.innerHTML = txt2;
+    //el3.innerHTML = txt3;// these are referencing the element vars at the top of file
+    el4.innerHTML = 'test'+data[2];
+    //el5.innerHTML = txt5;
 }
 
-function displayContents2(txt1){
+function displayContents2(txt1) {
     console.log(apiNames);
-    el2.innerHTML = apiNameAndCalls; // need element that matches this variable element's name in the second page
+    el2.innerHTML = data[1]; // need element that matches this variable element's name in the second page
     el6.innerHTML = txt1;
 }
