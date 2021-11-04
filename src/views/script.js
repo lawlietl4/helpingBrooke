@@ -86,6 +86,3 @@ function displayContents2(txt1) {
     el2.innerHTML = data[1]; // need element that matches this variable element's name in the second page
     el6.innerHTML = txt1;
 }
-function persistData(data){
-    
-}
