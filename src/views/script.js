@@ -1,4 +1,5 @@
 let filePath = document.getElementById('fileInput');
+let reader;
 var el1 = document.getElementById('info1');
 var el2 = document.getElementById('info2');
 var el3 = document.getElementById('info3');
