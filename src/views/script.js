@@ -1,5 +1,4 @@
 let filePath = document.getElementById('fileInput');
-let reader;
 var el1 = document.getElementById('info1');
 var el2 = document.getElementById('info2');
 var el3 = document.getElementById('info3');
@@ -12,6 +11,7 @@ let APIAvgCall = '';
 let apiNames = '';
 let apiNameAndCalls = '';
 let data = [];
+var reader = new FileReader();
 
 function checkFileAPI() {
     if (window.File && window.FileReader && window.FileList && window.Blob) {

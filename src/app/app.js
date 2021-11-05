@@ -4,6 +4,7 @@ const app = express();
 const path = require('path');
 let dataJSON;
 var information = [];
+var apiNum;
 
 app.set('view engine', 'ejs');
 app.use(express.static('..\\views\\'));
@@ -17,14 +18,15 @@ app.get('/secondpage.html', function (req, res) {
     //res.sendFile('secondpage.html', {root: path.join(__dirname,'../views')});
     res.send(`
     <head>
-        <link rel="spreadsheet" href="style.css" />
+        <link rel='stylesheet' href='./style.css'>
+    </head>
     <div>
     <a href='/index.html'>home</a>
     </div>
     <br>
     <input type="file" id='fileInput2' onChange='readText(this)' />
     <div>
-    <p id='out1'></p>
+    <p id='out1'>${information[1]}</p>
     <p id='info2'>Number of APIs: ${information[0]}</p>
     </div>
     <script src='./script.js'></script>`);
@@ -40,7 +42,9 @@ console.log("something at localhost:81");
 console.log(fs.readFile('StatsRunnerExampleResult.json', 'utf8', (err, data) => {
     if (err) console.log(err);
     dataJSON = JSON.parse(data);
-    var apiNum = dataJSON['Number Of APIs'];
-    information.push(apiNum)
+    apiNum = dataJSON['Number Of APIs'];
+    let apiNames = dataJSON['API Names and Calls'];
+    information.push(apiNum);
+    information.push(apiNames);
     console.log(information);
 }));
